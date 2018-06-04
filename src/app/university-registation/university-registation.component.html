@@ -1,0 +1,139 @@
+<div class="container py-5">
+  <div class="row">
+      <div class="col-md-12">
+
+          <div class="col-md-6 offset-md-3">
+              <span class="anchor" id="formRegister"></span>
+              <button class="btn btn-primary btn-lg btn-block" (click)="loginAction='userLogin'" id="user_login"> <a href="#loginForm">User Login</a> </button>
+              <button class="btn btn-secondary btn-lg btn-block" (click)="loginAction='userRegistration'" id="user_registration">User Registration</button>
+              <button class="btn btn-success btn-lg btn-block" (click)="loginAction='uniLogin'" id="uni_login">University Login</button>
+              <button class="btn btn-success btn-lg btn-block" (click)="loginAction='uniRegistration'" id="uni_registration">University Registration</button>
+          </div>
+
+          <div [ngSwitch]='loginAction' class="row">
+              <ng-template [ngSwitchCase]="'userLogin'">
+                  <div class="col-md-6 offset-md-3">
+                      <span class="anchor" id="formLogin"></span>
+                      <hr class="mb-5">
+                      <div class="card card-outline-secondary">
+                          <div class="card-header">
+                              <h3 class="mb-0">User Login</h3>
+                          </div>
+                          <div class="card-body">
+                              <form class="form" role="form" autocomplete="off" id="loginForm" novalidate="" method="POST">
+                                  <div class="form-group">
+                                      <label for="uname1">Username</label>
+                                      <input type="email" class="form-control" name="uname1" id="uname1" required="">
+                                      <div class="invalid-feedback">Please enter your email</div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Password</label>
+                                      <input type="password" class="form-control" id="pwd1" required="" autocomplete="new-password">
+                                      <div class="invalid-feedback">Please enter password</div>
+                                  </div>
+                                  <button type="submit" class="btn btn-success btn-lg btn-block" id="btnLogin">Login</button>
+                              </form>
+                          </div>
+                          <!--/card-body-->
+                      </div>
+                  </div>
+              </ng-template>
+
+              <ng-template [ngSwitchCase]="'userRegistration'">
+                  <div class="col-md-6 offset-md-3">
+                      <span class="anchor" id="formRegister"></span>
+                      <hr class="mb-5">
+                      <div class="card card-outline-secondary">
+                          <div class="card-header">
+                              <h3 class="mb-0">User SignUp</h3>
+                          </div>
+                          <div class="card-body">
+                              <form class="form" role="form" autocomplete="off">
+                                  <div class="form-group">
+                                      <label for="inputName">Name</label>
+                                      <input type="text" class="form-control" id="inputName" placeholder="Full name">
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="inputEmail3">Email</label>
+                                      <input type="email" class="form-control" id="inputEmail3" placeholder="Email" required="">
+                                  </div>
+
+                                  <!-- Place -->
+                                  <div class="form-group row">
+                                      <label class="col-md-12">Select University</label>
+                                      <div class="col-md-12">
+                                          <select class="form-control" name="university_name" size="0">
+                                              <option value="Velammal engineering college">Velammal engineering college</option>
+                                              <option value="RMk engineering college">RMk engineering college</option>
+                                              <option value="ssn engineering college">ssn engineering college</option>
+                                              <option value="RMD engineering college">RMD engineering college</option>
+                                          </select>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="inputPassword3">Joining Date</label>
+                                      <input type="date" #box (blur)="update(box.value)" class="form-control" id="joiningDate" placeholder="Joining Date" required="">
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="inputVerify3">Verify</label>
+                                      <input type="password" class="form-control" id="inputVerify3" placeholder="Password (again)" required="">
+                                  </div>
+                                  <div class="form-group">
+                                      <button type="submit" class="btn btn-success btn-lg float-right">Register</button>
+                                  </div>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </ng-template>
+          
+              
+              <ng-template [ngSwitchCase]="'uniLogin'">
+                  <div class="col-md-6 offset-md-3">
+                      <span class="anchor" id="formChangePassword"></span>
+                      <hr class="mb-5">
+                      <h3>University Login</h3>
+                      <div class="card-body">
+                        <form class="form" role="form" autocomplete="off" id="loginForm" novalidate="" method="POST">
+                            <div class="form-group">
+                                <label for="uname1">Username</label>
+                                <input type="email" class="form-control" name="uname1" id="uname1" required="">
+                                <div class="invalid-feedback">Please enter your email</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" class="form-control" id="pwd1" required="" autocomplete="new-password">
+                                <div class="invalid-feedback">Please enter password</div>
+                            </div>
+                            <button type="submit" class="btn btn-success btn-lg btn-block" id="btnLogin">Login</button>
+                        </form>
+                    </div>
+
+                  </div>
+              </ng-template>
+
+          <!-- University Registration -->
+
+              <ng-template [ngSwitchCase]="'uniRegistration'">
+                <app-uni-registration></app-uni-registration>
+              </ng-template>
+              <!-- <div class="col-md-6 offset-md-3">
+                  <span class="anchor" id="formPayment"></span>
+                  <hr class="my-5">
+              </div>
+              <div class="col-md-8 offset-md-2">
+                  <span class="anchor" id="formUserEdit"></span>
+                  <hr class="my-5">
+              </div>
+              <div class="col-md-6 offset-md-3">
+                  <span class="anchor" id="formContact"></span>
+                  <hr class="my-5">
+              </div>
+              <div class="col-md-10 offset-md-1">
+                  <span class="anchor" id="formComplex"></span>
+                  <hr class="my-5">
+              </div> -->
+          </div>
+      </div>
+  </div>
+</div>

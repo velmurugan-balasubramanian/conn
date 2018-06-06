@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+//import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
@@ -26,8 +26,7 @@ export class AuthService {
   university : Observable<University>;
 
   constructor(private afAuth:AngularFireAuth,
-    private afs:AngularFirestore,
-    private router: Router) {
+    private afs:AngularFirestore) {
       this.university = this.afAuth.authState
         pipe(switchMap(university => {
           if (university) {
@@ -43,7 +42,8 @@ export class AuthService {
   emailSignUp(email: string, password: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then(user => {
-        return this.setUserDoc(user) // create initial user document
+          alert("signup success");
+        //return this.setUserDoc(user) // create initial user document
       })
       .catch(error => this.handleError(error) );
   }

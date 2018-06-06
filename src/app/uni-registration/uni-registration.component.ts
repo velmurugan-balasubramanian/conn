@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../core/auth.service';
 
 
 @Component({
@@ -9,10 +10,13 @@ import { Component, OnInit } from '@angular/core';
 export class UniRegistrationComponent implements OnInit {
 
   model: any = {};
-  
-  constructor() { }
+
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
   }
-
+  onSubmit() {
+    this.auth.emailSignUp(this.model.email, this.model.password);
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
+  }
 }

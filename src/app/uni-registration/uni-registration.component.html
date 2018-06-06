@@ -1,15 +1,8 @@
-<div class="col-md-6 offset-md-3">
-  <span class="anchor" id="formResetPassword"></span>
-  <hr class="mb-5">
-  <div class="card-header">
-          <h3 class="mb-0">University SignUp</h3>
-  </div>
 
-  <div class="card-body">
           <form class="form"  role="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
               <div class="form-group">
                   <label for="uniName">University/College Name</label>
-                  <input type="text" class="form-control" id="uniName" placeholder="University/College name" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required >
+                  <input type="text" class="form-control" id="uniName" placeholder="University/College name" name="uniName" [(ngModel)]="model.uniName" #uniName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && uniName.invalid }" required >
               </div>
               <div class="form-group">
                   <label for="uniEmailReg">University Email</label>
@@ -18,31 +11,30 @@
 
               <div class="form-group">
                       <label for="uniPassword">Password</label>
-                      <input type="password" class="form-control" id="uniPassword" placeholder="Password" required="">
+                      <input type="password" class="form-control" id="uniPassword" placeholder="Password" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required="">
               </div>
 
               <div class="form-group">
                       <label for="establishedYear">Established</label>
-                      <input type="date" class="form-control" id="establishedYear" placeholder="" required="">
+                      <input type="date" class="form-control" id="establishedYear" placeholder="" name="establishedYear" [(ngModel)]="model.establishedYear" #establishedYear="ngModel" [ngClass]="{ 'is-invalid': f.submitted && establishedYear.invalid }" required="">
               </div>
 
               <div class="form-group">
                       <label for="locatedCity">City</label>
-                      <input type="text" class="form-control" id="locatedCity" placeholder="City" required="">
+                      <input type="text" class="form-control" id="locatedCity" placeholder="City" name="city" [(ngModel)]="model.city" #city="ngModel" [ngClass]="{ 'is-invalid': f.submitted && city.invalid }" required="">
               </div>
 
               <div class="form-group">
                       <label for="locatedState">State</label>
-                      <input type="text" class="form-control" id="locatedState" placeholder="State" required="">
+                      <input type="text" class="form-control" id="locatedState" placeholder="State" name="locatedState" [(ngModel)]="model.locatedState" #locatedState="ngModel" [ngClass]="{ 'is-invalid': f.submitted && locatedState.invalid }" required="">
               </div>
 
               <div class="form-group">
                       <label for="locatedCountry">Country</label>
-                      <input type="text" class="form-control" id="locatedCountry" placeholder="Country" required="">
+                      <input type="text" class="form-control" id="locatedCountry" placeholder="Country" name="country" [(ngModel)]="model.country" #country="ngModel" [ngClass]="{ 'is-invalid': f.submitted && country.invalid }" required="">
               </div>
               <div class="form-group">
                       <button type="submit" class="btn btn-success btn-lg btn-block float-right">Register</button>
               </div>
           </form>
-      </div>
-</div>
+

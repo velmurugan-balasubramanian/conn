@@ -1,0 +1,20 @@
+<form class="form" role="form" (ngSubmit)="f.form.valid && onSubmitLogin()" #f="ngForm" novalidate autocomplete="off" id="loginForm" novalidate="" method="POST">
+  <div class="form-group">
+      <label for="uname1">Username</label>
+      <input type="email" class="form-control" name="uniName1" id="uniName1" [(ngModel)]="uniLogin.uniName1" #uniName1="ngModel" [ngClass]="{ 'is-invalid': f.submitted && uniName1.invalid }" required="">
+      <div class="invalid-feedback">Please enter your email</div>
+  </div>
+  <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control" name="uniPassword1" id="uniPassword1" [(ngModel)]="uniLogin.uniPassword1" #uniPassword1="ngModel" [ngClass]="{ 'is-invalid': f.submitted && uniPassword1.invalid }" required="" autocomplete="new-password">
+      <div class="invalid-feedback">Please enter password</div>
+  </div>
+  <button type="submit" class="btn btn-success btn-lg btn-block" id="btnLogin">Login</button>
+</form>
+
+<div >
+
+  <h3>{{universities | async | json}}</h3>
+
+
+</div>

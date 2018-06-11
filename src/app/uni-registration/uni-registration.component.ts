@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../core/auth.service';
+import { map, switchMap, switchMapTo } from 'rxjs/operators';
+
 
 
 @Component({
@@ -7,16 +9,25 @@ import { AuthService } from '../core/auth.service';
   templateUrl: './uni-registration.component.html',
   styleUrls: ['./uni-registration.component.scss']
 })
+
 export class UniRegistrationComponent implements OnInit {
 
+
+  
   model: any = {};
+  //password:string;
+  
+  constructor(private auth: AuthService) { 
 
-  constructor(private auth: AuthService) { }
-
-  ngOnInit() {
   }
+
+
+  ngOnInit() { }
   onSubmit() {
-    this.auth.emailSignUp(this.model.email, this.model.password);
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
+    console.log("onSubmit Funtion Called");
+    this.auth.emailSignUp(this.model.email, this.model.password,this.model);
+    console.log('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
+    //this.auth.allUniversityData(this.model)
+    
   }
 }

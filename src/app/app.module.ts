@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { UniversityRegistationComponent } from './university-registation/university-registation.component';
 import { UniRegistrationComponent } from './uni-registration/uni-registration.component';
+import { UniLoginComponent } from './uni-login/uni-login.component';
 
 
 
@@ -17,6 +18,7 @@ import { UniRegistrationComponent } from './uni-registration/uni-registration.co
     AppComponent,
     UniversityRegistationComponent,
     UniRegistrationComponent,
+    UniLoginComponent,
 
   ],
   imports: [

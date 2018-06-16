@@ -10,7 +10,7 @@ import { map, take, tap } from 'rxjs/operators';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthService } from './auth.service';
-//import { NotifyService } from './notify.service';
+;
 
 @Injectable({
   providedIn: 'root'
@@ -30,8 +30,7 @@ export class AuthGuard implements CanActivate {
       tap(loggedIn => {
         if (!loggedIn) {
           console.log('access denied');
-          //this.notify.update('You must be logged in!', 'error');
-          this.router.navigate(['/']);
+          this.router.navigate(['/login']);
         }
       })
     );

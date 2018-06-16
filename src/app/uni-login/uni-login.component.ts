@@ -6,7 +6,9 @@ import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection 
 import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
-interface University  {}
+interface University  {
+  
+}
 @Component({
   selector: 'app-uni-login',
   templateUrl: './uni-login.component.html',
@@ -19,16 +21,26 @@ export class UniLoginComponent implements OnInit {
   unversity:Observable<University>;
   universities : Observable<University>;
   uniLogin: any = {};
-  constructor(private auth: AuthService,private afAuth:AngularFireAuth, private afs:AngularFirestore, private router:Router) { }
+  constructor(private auth: AuthService,private afAuth:AngularFireAuth, private afs:AngularFirestore, private router:Router ) { }
 
   ngOnInit() {}
   onSubmitLogin() {
+   //this.router.navigate(['/home']);
+   // alert("called onsubmit function");
     //this.auth.emailLogin(this.uniLogin.uniName1, this.uniLogin.uniPassword1);
     return this.afAuth.auth.signInWithEmailAndPassword(this.uniLogin.uniName1, this.uniLogin.uniPassword1)
     .then(credential => {
-      this.router.navigate(['/home']);
       this.universityDoc  = this.afs.doc(`universities/${credential.user.uid}`);
       this.universities = this.universityDoc.valueChanges();
+      alert("inside callback");
+      console.log("Credential",credential);
+
+      let state= this.afAuth.user;
+      console.log("what the hell", state )
+     state.subscribe(res => console.log("Fuck yeshhh",res));
+     
+      this.router.navigate(['/home']);
+
       
     })
     //this.auth.allUniversityData(this.model)

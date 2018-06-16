@@ -9,12 +9,9 @@
       <input type="password" class="form-control" name="uniPassword1" id="uniPassword1" [(ngModel)]="uniLogin.uniPassword1" #uniPassword1="ngModel" [ngClass]="{ 'is-invalid': f.submitted && uniPassword1.invalid }" required="" autocomplete="new-password">
       <div class="invalid-feedback">Please enter password</div>
   </div>
-  <button type="submit" class="btn btn-success btn-lg btn-block" id="btnLogin">Login</button>
+  <button type="submit" class="btn btn-success btn-lg btn-block"  id="btnLogin" >Login</button>
 </form>
 
 <div >
-
-  <h3>{{universities | async | json}}</h3>
-
 
 </div>

@@ -14,7 +14,7 @@ import{ UniversityRegistationComponent } from './university-registation/universi
 
 const routes: Routes = [
   { path: '', component: UniversityRegistationComponent },
-  { path: 'home', component: HomeComponent,canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent},
   // { path: 'notes', component: NotesListComponent,  canActivate: [AuthGuard] },
   // { path: 'uploads',  component: UploadPageComponent,  canActivate: [AuthGuard] },
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-//import { Router } from '@angular/router';
+import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
@@ -114,6 +114,7 @@ emailSignUp(email: string, password: string, data:any) {
     .createUserWithEmailAndPassword(email, password)
     .then(credential => {
       alert("SIgnup Succcessful");
+      //this.router.navigate(['/home']);
       //this.notify.update('Welcome to Firestarter!!!', 'success');
       this.updateUserData(credential.user); // if using firestore
       return this.allUniversityData(credential.user,data);

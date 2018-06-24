@@ -2,23 +2,19 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuard } from './core/auth.guard';
-import { HomeComponent } from './home/home.component';
-import{ UniversityRegistationComponent } from './university-registation/university-registation.component';
-// import { UserLoginComponent } from './ui/user-login/user-login.component';
-// import { HomePageComponent } from './ui/home-page/home-page.component';
-// import { NotesListComponent } from './notes/notes-list/notes-list.component';
-// import { UploadPageComponent } from './uploads/upload-page/upload-page.component';
-
-// import { SsrPageComponent } from './ui/ssr-page/ssr-page.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './components/home/home.component';
+import { UniversityRegistationComponent } from './components/university-registation/university-registation.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 
 const routes: Routes = [
   { path: '', component: UniversityRegistationComponent },
-  { path: 'home', component: HomeComponent},
-  // { path: 'notes', component: NotesListComponent,  canActivate: [AuthGuard] },
-  // { path: 'uploads',  component: UploadPageComponent,  canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  { path: 'user', component: UserProfileComponent, canActivate: [AuthGuard]},
+  { path: 'welcome', component: WelcomeComponent, canActivate: [AuthGuard]},
 
-  // { path: 'ssr', component: SsrPageComponent },
 ];
 
 @NgModule({

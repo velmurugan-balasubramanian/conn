@@ -1,0 +1,13 @@
+<form class="form" role="form" autocomplete="off" id="loginForm" (ngSubmit)="f.form.valid && onUserSubmitLogin()" #f="ngForm" novalidate="" method="POST">
+    <div class="form-group">
+        <label for="userEmailL">Email</label>
+        <input type="email" class="form-control" name="userEmailL" id="userEmailL" [(ngModel)]="userLogin.userEmailL" #userEmailL="ngModel" [ngClass]="{ 'is-invalid': f.submitted && userEmailL.invalid }" required="">
+        <div class="invalid-feedback">Please enter your email</div>
+    </div>
+    <div class="form-group">
+        <label for="userPasswordL">Password</label>
+        <input type="password" class="form-control" id="userPasswordL" name="userPasswordL" required="" [(ngModel)]="userLogin.userPasswordL" #userPasswordL="ngModel" [ngClass]="{ 'is-invalid': f.submitted && userPasswordL.invalid }" autocomplete="new-password">
+        <div class="invalid-feedback">Please enter password</div>
+    </div>
+    <button type="submit" class="btn btn-success btn-lg btn-block" id="btnLogin">Login</button>
+</form>

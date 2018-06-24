@@ -10,7 +10,7 @@ import { map, take, tap } from 'rxjs/operators';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthService } from './auth.service';
-;
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,13 +18,14 @@ import { AuthService } from './auth.service';
 export class AuthGuard implements CanActivate {
   constructor(
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private afAuth:AngularFireAuth
   ) {}
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    return this.auth.universities.pipe(
+    return this.afAuth.user.pipe(
       take(1),
       map(user => !!user),
       tap(loggedIn => {

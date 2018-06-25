@@ -30,8 +30,6 @@ export class AuthService {
       .createUserWithEmailAndPassword(email, password)
       .then(credential => {
         alert("SIgnup Succcessful");
-        //this.router.navigate(['/home']);
-        //this.notify.update('Welcome to Firestarter!!!', 'success');
         this.updateUniversityData(credential.user); // if using firestore
         this.allUniversityData(credential.user, data);
         this.listUpdateUniversityData(credential.user);
@@ -84,9 +82,6 @@ export class AuthService {
     return this.afAuth.auth
       .createUserWithEmailAndPassword(email, password)
       .then(credential => {
-        alert("SIgnup Succcessful");
-        //this.router.navigate(['/home']);
-        //this.notify.update('Welcome to Firestarter!!!', 'success');
         this.updateUserData(credential.user,data); // if using firestore
         this.allUserData(credential.user, data);
         this.router.navigate(['/welcome']);
@@ -94,9 +89,8 @@ export class AuthService {
       .catch(error => this.handleError(error));
   }
 
-  // 
+  // Set User Document
   private updateUserData(user: User, model:any) {
-    console.log("aaaaaaaassssssssssssdddddddddd",model.universityName);
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(
       `universities/${model.universityName}/students/${user.uid}`
     );
@@ -105,12 +99,14 @@ export class AuthService {
     };
     return userRef.set(data);
   }
-
+  // Update User Document with Registration Data
   allUserData(user, model: any) {
     console.log("Data before written", model);
     this.afs.doc(`universities/${model.universityName}/students/${user.uid}`).update(model);
   }
 
+  
+  // Error Handling
   private handleError(error: Error) {
     console.error(error);
     //this.notify.update(error.message, 'error');

@@ -8,6 +8,7 @@ import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection 
 import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 import {University} from '../../models/university';
+import {User} from '../../models/user';
 
 
 @Component({
@@ -16,11 +17,11 @@ import {University} from '../../models/university';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  items:University;
-  universityDoc: AngularFirestoreDocument<University>;
-  unversity:Observable<University>;
-  universities : Observable<University>;
-  uniLogin: any = {};
+  public allUserData;
+  items:User[];
+  universityDoc: AngularFirestoreCollection<User>;
+  unversity:Observable<User>;
+  universities : Observable<User>;
   constructor(private auth: AuthService,private afAuth:AngularFireAuth, private afs:AngularFirestore, private router:Router) {}
 
   ngOnInit() {
@@ -29,19 +30,20 @@ export class HomeComponent implements OnInit {
     state.subscribe(res => {
       if(res){
       console.log("Fuck yeshhh",res.uid);
-      this.universityDoc  = this.afs.doc(`universities/${res.uid}`);
+      this.universityDoc  = this.afs.collection(`universities/${res.uid}/students`);
      // this.universities = this.universityDoc.valueChanges();
-     let fuck = this.universityDoc.valueChanges().subscribe( uni => {
-         this.items = uni;
-
-         console.log("fucking awesome buddy", this.items);
-         return fuck;
-
+     let some = this.universityDoc.valueChanges().subscribe( uni => {
+            this.items = uni;
+           console.log("This Items",this.items);
+       this.allUserData = Object.keys(this.items);
+        console.log("lolololol",Object.keys(this.items))
+        //  console.log("fucking awesome buddy", this.items);
+        //  return fuck;
       }
      );
-    }
-    else{
-      console.log("NONE");
+       
+     console.log("hahahah",Object.keys(some));
+     console.log("will this work",some);
     }
      });
      

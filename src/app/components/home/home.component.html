@@ -5,7 +5,13 @@
 <h3> {{items.city}} </h3>
 <h3> {{items.country}} </h3>
 <h3> {{items.establishedYear}} </h3> -->
+
+<h3>LOLOLOL</h3>
+<h3>Student List</h3>
 <ul *ngFor="let item of items" class="collection">
-<h3>{{item}}</h3>
+
+<h3>{{item.firstName}} {{item.lastName}}</h3>
+<p> Joined on {{item.joiningDate}}</p>
+<p>email : {{item.userEmailR}}</p>
 
 </ul>

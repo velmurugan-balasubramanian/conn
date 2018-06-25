@@ -8,7 +8,7 @@ import { Observable, pipe,of, observable} from 'rxjs';
   providedIn: 'root'
 })
 export class GetAllUniversityService {
-  items:Observable<University[]>
+   //items:Observable<University[]>
 
   universityCollection: AngularFirestoreCollection<University>;
   universityDoc: AngularFirestoreCollection<University>;

@@ -15,6 +15,17 @@
     <label for="userPasswordR">Password</label>
     <input type="password"  class="form-control" id="userPasswordR" name="userPasswordR" placeholder="Password" required="" [(ngModel)]="model.userPasswordR" #userPasswordR="ngModel" [ngClass]="{ 'is-invalid': f.submitted && userPasswordR.invalid }" >
   </div>
+
+  <div class="form-group row">
+    <label for="roleR" class="col-md-12">Select Role</label>
+    <div class="col-md-12">
+        <select class="form-control" id="roleR" name="roleR" placeholder="Select Roles"  size="0" [(ngModel)]="model.roleR" #roleR="ngModel" [ngClass]="{ 'is-invalid': f.submitted && roleR.invalid }" >
+            <option value="student" default >Student</option>
+            <option value="faculty" default >Faculty</option>
+          </select>
+    </div>
+  </div>
+  
   <div class="form-group row">
       <label for="universityName" class="col-md-12">Select University</label>
       <div class="col-md-12">

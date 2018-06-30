@@ -46,17 +46,5 @@ export class HomeComponent implements OnInit {
      console.log("will this work",some);
     }
      });
-     
-    // pipe(switchMap(university => {
-    //   if (university) {
-    //     //console.log( "will this fucking work ",this.afs.doc<University>('universities/${university.uid}').valueChanges()  );          
-      
-    //    // this.universityDoc  = this.afs.doc(`universities/${university.uid}`);
-    //     this.universities = this.universityDoc.valueChanges();
-    //   }else{
-    //     return null;
-    //   }
-    // }))
   }
-
 }

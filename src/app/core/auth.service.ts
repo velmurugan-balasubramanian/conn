@@ -91,18 +91,36 @@ export class AuthService {
 
   // Set User Document
   private updateUserData(user: User, model:any) {
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(
-      `universities/${model.universityName}/students/${user.uid}`
-    );
-    const data: User = {
-      uid: user.uid
-    };
-    return userRef.set(data);
+    if(model.roleR == "student" ){
+        const userRef: AngularFirestoreDocument<User> = this.afs.doc(
+          `universities/${model.universityName}/students/${user.uid}`
+        );
+      
+        const data: User = {
+          uid: user.uid
+        };
+        return userRef.set(data);
+    }
+    else if(model.roleR == "faculty" ){
+      const userRef: AngularFirestoreDocument<User> = this.afs.doc(
+        `universities/${model.universityName}/staff/${user.uid}`
+      );
+    
+      const data: User = {
+        uid: user.uid
+      };
+      return userRef.set(data);
+  }
   }
   // Update User Document with Registration Data
   allUserData(user, model: any) {
     console.log("Data before written", model);
+    if(model.roleR == "student" ){
     this.afs.doc(`universities/${model.universityName}/students/${user.uid}`).update(model);
+    } 
+    if(model.roleR == "faculty" ){
+      this.afs.doc(`universities/${model.universityName}/staff/${user.uid}`).update(model);
+      }
   }
 
   

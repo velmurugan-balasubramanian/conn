@@ -24,8 +24,8 @@ export class UserRegistrationComponent implements OnInit {
     
   }
   onSubmit() {
-    console.log("onSubmit Funtion Called");
-  this.auth.userEmailSignUp(this.model.userEmailR, this.model.userPasswordR,this.model);
+    console.log("onSubmit Funtion Called",this.model);
+    this.auth.userEmailSignUp(this.model.userEmailR, this.model.userPasswordR,this.model);
     console.log('SUCCESS!! :-)\n\n' + JSON.stringify(this.model));
     //this.auth.allUniversityData(this.model)
     

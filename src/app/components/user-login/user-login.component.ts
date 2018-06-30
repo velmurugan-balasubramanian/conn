@@ -23,9 +23,20 @@ export class UserLoginComponent implements OnInit {
   }
 
   onUserSubmitLogin() {
+    alert("inside onsubmit user login")
+    if(this.userLogin.roleL == "student"){
+      console.log("Why",this.userLogin.roleL)
      return this.afAuth.auth.signInWithEmailAndPassword(this.userLogin.userEmailL, this.userLogin.userPasswordL)
      .then(credential => {
         this.router.navigate(['/user']);
      })
-   }
+    }
+    else if (this.userLogin.roleL == "faculty"){
+      console.log("Why",this.userLogin.roleL)
+      return this.afAuth.auth.signInWithEmailAndPassword(this.userLogin.userEmailL, this.userLogin.userPasswordL)
+      .then(credential => {
+         this.router.navigate(['/staff']);
+      })
+    }
+    }
 }

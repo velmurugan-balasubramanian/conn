@@ -1,27 +1,11 @@
-# Uconn
+# University Connect
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.2.
+University Connect is an application used to manage student attendance and class enrollments, 
 
-## Development server
+The applcation is built using Angular-6 in the front end and Firebase in the backend 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+currently the application is a WIP, yet 90% of the app is completed, and hosted on Netlify. please feel free to visit it, to explore further register a university, student or a staff and look at the corresponding dashboards. 
 
-## Code scaffolding
+Since the application is a WIP, there are few debug alerts and console messages, Please ignore those :)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+https://kind-mclean-eb2b54.netlify.com/
